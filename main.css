@@ -5,13 +5,17 @@ body {
     font-family: Verdana;
 }
 
+.header-top {
+    font-size: 20px;
+}
+
 .main-header {
-    font-size: 40px;
+    font-size: 45px;
  }
 
 .sub-header
 {
-    font-size: 35px;
+    font-size: 40px;
 }
 
 .about-me {
@@ -24,4 +28,13 @@ body {
 .projects {
     font-size: 20px;
     display: grid;
+}
+
+h2 {
+    font-size: 30px;
+}
+
+.link {
+    text-decoration: none;
+    color: rgb(165, 165, 165);
 }
