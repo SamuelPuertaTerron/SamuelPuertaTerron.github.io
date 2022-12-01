@@ -3,6 +3,8 @@ body {
     color: rgb(255, 255, 255);
     text-align: center;
     font-family: Verdana;
+    height: 100%;
+    overflow: hidden;
 }
 
 .header-top {
@@ -20,7 +22,6 @@ body {
 
 .about-me {
     font-size: 25px;
-    margin: 100px;
     gap: 50px 100px;
  }
 
