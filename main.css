@@ -7,7 +7,7 @@ body {
     overflow: hidden;
 }
 
-@media only screen and (max-width: 760px) and (orientation: landscape){
+@media only screen and (max-width: 390px) and (orientation: landscape){
     body{
         overflow: visible;
     }
