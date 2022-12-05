@@ -6,7 +6,7 @@ body {
     height: 100%;
 }
 
-@media only screen and (min-width: 390px) and (orientation: landscape){
+@media only screen and (min-width: 390px) and (orientation: portrait){
     body{
         overflow: visible;
     }
