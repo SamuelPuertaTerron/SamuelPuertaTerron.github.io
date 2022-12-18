@@ -1,20 +1,17 @@
-@media only screen and (min-width: 390px) and (orientation: portrait){
-    body {
-        overflow: visible;
-    }
-}
+@import url();
 
-@media only screen and (min-width: 1980px) {
-    body {
-        overflow: hidden;
-    }
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    background-color: rgb(46, 46, 46);
+    background-color: rgb(29, 29, 29);
+    background-image: url(Resources/Images/Background.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
     color: rgb(255, 255, 255);
     text-align: center;
-    font-family: Verdana;
+    font-family:'Segoe UI';
     height: 100%;
 }
 
@@ -22,38 +19,133 @@ h2 {
     font-size: 30px;
 }
 
+footer {
+    background-color: rgb(17, 17, 17);
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+}
+
+article.active {
+    opacity: 1;
+}
+
+article.hidden {
+    display: none;
+}
+
+#hidden {
+    opacity: 0;
+}
+
+#start {
+    opacity: 0;
+    transition: opacity 5s;
+}
+
+#start.fade {
+    opacity: 1;
+}
+
+
 .header-top {
     font-size: 20px;
 }
 
 .main-header {
     font-size: 45px;
- }
+}
 
-.sub-header
-{
+.sub-header {
     font-size: 40px;
 }
 
 .about-me {
     font-size: 25px;
     gap: 50px 100px;
- }
-
+}
 
 .projects {
     font-size: 20px;
-    display: grid;
+}
+
+.projects figure {
+    display: inline-block;
+}
+
+.projects button {
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+    color: white;
+    font-weight: bold;
+    border: 3px solid #f1f1f1;
+    width: 300px;
+    height: 300px;
+}
+
+.projects button:hover {
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0, 0.8);
+    border: 5px solid #f1f1f1;
+}
+
+.project-panel {
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0, 0.4);
+    border: 3px solid #f1f1f1;
+    width: 50%;
+    height: 75%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.project-panel-header.button {
+    top: 0.875rem;
+	left: 0.875rem;
+	width: 2.25rem;
+	height: 2.25rem;
 }
 
 .socials {
+    text-align: center;
     font-size: 20px;
-    display: block;
-    padding-top: 100;
+    padding-top: 100px;
 }
 
+.socials figure {
+    padding-left: 20px;
+    display: inline-block;
+}
+
+.socials img {
+    width: 100px;
+    height: 100px;
+}
 
 .link {
     text-decoration: none;
     color: rgb(165, 165, 165);
+}
+
+.icon {
+    background-color: rgb(32, 32, 32);
+    border-radius: 15px;
+}
+
+@media only screen and (min-width: 390px) and (orientation: portrait) {
+    body {
+        overflow: visible;
+        background-size:cover;
+    }
+}
+
+@media only screen and (min-width: 1980px) {
+    body {
+        overflow: hidden;
+    }
 }
