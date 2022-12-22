@@ -113,6 +113,7 @@ article.hidden {
     text-align: center;
     font-size: 20px;
     padding-top: 100px;
+    display: inline-block;
 }
 
 .socials figure {
@@ -151,6 +152,10 @@ article.hidden {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+    }
+
+    .socials {
+        display: block;
     }
 }
 
