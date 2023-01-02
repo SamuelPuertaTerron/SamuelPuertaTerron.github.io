@@ -11,36 +11,51 @@
     <div id="hidden">
         <div id="start">
             <!-- Home Screen -->
-            <div id = "home" style="display: block;">
+            <div id="home" style="display: block;">
                 <header>
                     <section class="header-top">
-                        <h1 class="main-header">Sam Puerta Terron</h1>
-                        <P>Games programming student in Gloucestershire, United Kingdom.</P>
+                        <section class="video-slideshow">
+                            <div id="background-video">
+                                <h1>Samuel Puerta Terron</h1>
+                                <video src="Resources/Videos/Background.mp4" autoplay muted loop>
+                            </div>
+                        </section>
                     </section>
                 </header>
                 <div>
-                    <section class="projects">
-                        <h1 class="sub-header">Projects</h1>
-                        <figure>
+                    <section id="fractured-main" class="projects">
+                        <figure class="left">
                             <button onclick="loadtab('fracturedengine')">
                                 <h2>Fractured Engine</h2>
-                                <a class="link" href="https://github.com/SamuelPuertaTerron/FracturedEngine" target="_blank"
-                                rel="noreferrer noopener">Click here for the engine source code.</a>
+                                <a class="link" href="https://github.com/SamuelPuertaTerron/Fractured-Engine target="_blank"
+                                    rel="noreferrer noopener">Click Here for the game download</a>
                             </button>
+                            <p>Fractured Engine is a 2D game engine created to learn about graphics programming. The
+                                engine currently features sprite rendering, text rendering and debugging tools.</p>
                         </figure>
-                        <figure>
-                            <button onclick="loadtab('operator')"> 
+                    </section>
+                    <section id="operator-main" class="projects">
+                        <figure class="left">
+                            <button onclick="loadtab('operator')">
                                 <h2>Operator</h2>
                                 <a class="link" href="https://sam-puerta-terron.itch.io/operator" target="_blank"
                                     rel="noreferrer noopener">Click Here for the game download</a>
                             </button>
+                            <p>Operator is a game in which the player controls a CCTV camera and is tasked with helping
+                                out a fellow agent.
+                                The player will has click points located around the map, which will make the agent go to
+                                that posiition.</p>
                         </figure>
-                        <figure>
+                    </section>
+                    <section id="unity-extension-main" class="projects">
+                        <figure class="left">
                             <button onclick="loadtab('unityextensions')">
                                 <h2>Unity Extensions</h2>
                                 <a class="link" href="https://github.com/SamuelPuertaTerron/Unity-Extensions" target="_blank"
-                                    rel="noreferrer noopener">Click here for the source code.</a>
+                                    rel="noreferrer noopener">Click Here for the game download</a>
                             </button>
+                            <p>The Unity Extensions are scripts which can be used within Unity to make it easier to
+                                programme.</p>
                         </figure>
                     </section>
                 </div>
@@ -48,8 +63,8 @@
                     <section class="socials">
                         <h2>Contact</h2>
                         <figure>
-                            <a class="link" href="https://github.com/SamuelPuertaTerron" target="_blank" rel="noreferrer noopener"><img
-                                    src="Resources/Images/Github.png" title="Github"></a>
+                            <a class="link" href="https://github.com/SamuelPuertaTerron" target="_blank"
+                                rel="noreferrer noopener"><img src="Resources/Images/Github.png" title="Github"></a>
                             <p>Github</p>
                         </figure>
                         <figure>
@@ -58,31 +73,31 @@
                             <p>LinkedIn</p>
                         </figure>
                         <figure>
-                            <a class="link" href="mailto:spuertaterron@gmail.com" target="_blank" rel="noreferrer noopener"><img
-                                    src="Resources/Images/Mail.png" title="Email"></a>
-                            <p>Emial</p>
+                            <a class="link" href="mailto:spuertaterron@gmail.com" target="_blank"
+                                rel="noreferrer noopener"><img src="Resources/Images/Mail.png" title="Email"></a>
+                            <p>Email</p>
                         </figure>
                     </section>
                 </div>
-                <footer>
-                    <p>&copy; Samuel Puerta Terron</p>
-                </footer>
+                <p>
+                    &copy; Samuel Puerta Terron
+                </p>
             </div>
             <!-- Project Pages -->
             <div>
-                <article id = "fracturedengine" class="project-panel" style="display: none;">
+                <article id="fracturedengine" class="project-panel" style="display: none;">
                     <div class="project-panel-header">
                         <button onclick="closetab('fracturedengine')">Close</button>
                         <h2>Fractured Engine</h2>
                     </div>
                     <p> Fractured Engine is a 2D game engine built using C++ and OpenGL</p>
                 </article>
-                <article  id = "operator" class="project-panel" style="display: none;">
+                <article id="operator" class="project-panel" style="display: none;">
                     <button onclick="closetab('operator')">Close</button>
                     <h2>Operator</h2>
                     <p>A 3D strategy Game using Unity 3D</p>
                 </article>
-                <article id = "unityextensions" class="project-panel" style="display: none;">
+                <article id="unityextensions" class="project-panel" style="display: none;">
                     <button onclick="closetab('unityextensions')">Close</button>
                     <h2>Unity Extensions</h2>
                 </article>
@@ -97,20 +112,19 @@
             fadeIn.classList.toggle('fade');
         }
 
-        function loadtab(name){
+        function loadtab(name) {
             var home = document.getElementById('home');
             home.style.display = 'none';
             var elem = document.getElementById(name);
             elem.style.display = 'block';
         }
 
-        function closetab(name){
+        function closetab(name) {
             var elem = document.getElementById(name);
             elem.style.display = 'none';
             var home = document.getElementById('home');
             home.style.display = 'block';
         }
-
         move();
     </script>
 </body>

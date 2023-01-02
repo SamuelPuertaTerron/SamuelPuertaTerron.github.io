@@ -1,29 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
 html {
     scroll-behavior: smooth;
-    background:url(Resources/Images/Background.png) no-repeat center center;
-    min-height:100%;
-    background-size:cover
+    background: url(Resources/Images/Background.png) no-repeat center center;
+    min-height: 100%;
+    background-size: cover
 }
 
 body {
     color: rgb(255, 255, 255);
     text-align: center;
-    font-family:'Segoe UI';
+    font-family: 'Roboto', sans-serif;
     height: 100%;
 }
 
-h2 {
-    font-size: 30px;
+h1 {
+    font-size: 75px;
 }
 
-footer {
-    background-color: rgb(17, 17, 17);
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    color: white;
-    text-align: center;
+h2 {
+    font-size: 50px;
 }
 
 article.active {
@@ -47,13 +43,12 @@ article.hidden {
     opacity: 1;
 }
 
-
 .header-top {
     font-size: 20px;
 }
 
-.main-header {
-    font-size: 45px;
+.header-top h1 {
+    font-size: 50px;
 }
 
 .sub-header {
@@ -65,34 +60,101 @@ article.hidden {
     gap: 50px 100px;
 }
 
-.projects {
-    font-size: 20px;
-    background-size:cover;
+.video-slideshow {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
 }
 
-.projects figure {
+.video-slideshow video{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.video-slideshow h1 {
+    font-size: 75px;
+    font-weight: bold;
+    vertical-align: middle;
     display: inline-block;
+    text-align: center;
+}
+
+.video-slideshow h2 {
+    font-size: 30px;
+    padding-bottom: 50vh;
+    text-align: center;
+}
+
+.video-slideshow a {
+    font-size: 30px;
+    padding-bottom: 50vh;
+    text-align: center;
+}
+
+.projects {
+    font-size: 20px;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.projects .left{
+    display: flex;
+    background-color: rgb(55, 98, 109);
+}
+
+.projects .right {
+    padding: 10px 0;
+    display: flex;
+    justify-content: flex-end;
+    background-color: rgb(70, 161, 161);
 }
 
 .projects button {
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
     color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 50px;
     font-weight: bold;
     border: 3px solid #f1f1f1;
-    width: 300px;
+    width: 50%;
     height: 300px;
 }
 
+.projects button a {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+}
+
 .projects button:hover {
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0, 0.8);
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.8);
     border: 5px solid #f1f1f1;
 }
 
+.projects p {
+    padding: 10px;
+    width: 50%;
+    font-size: 25px;
+}
+
+.projects h1 {
+    font-size: 30px;
+}
+
+
 .project-panel {
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0, 0.4);
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
     border: 3px solid #f1f1f1;
     width: 50%;
     height: 75%;
@@ -104,9 +166,9 @@ article.hidden {
 
 .project-panel-header.button {
     top: 0.875rem;
-	left: 0.875rem;
-	width: 2.25rem;
-	height: 2.25rem;
+    left: 0.875rem;
+    width: 2.25rem;
+    height: 2.25rem;
 }
 
 .socials {
@@ -138,13 +200,23 @@ article.hidden {
 
 @media only screen and (min-width: 390px) and (orientation: portrait) {
     body {
-        overflow: visible;
-        background-size:cover;
+        background-size: cover;
+    }
+
+    .video-slideshow video{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
     }
 
     .project-panel {
-        background-color: rgb(0,0,0); /* Fallback color */
-        background-color: rgba(0,0,0, 0.4);
+        background-color: rgb(0, 0, 0);
+        /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.4);
         border: 3px solid #f1f1f1;
         width: 80%;
         height: 80%;
@@ -161,7 +233,6 @@ article.hidden {
 
 @media only screen and (min-width: 1980px) {
     body {
-        overflow: hidden;
-        background-size:cover;
+        background-size: cover;
     }
 }
