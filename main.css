@@ -113,6 +113,28 @@ article.hidden {
     color: rgb(114, 114, 114);
 }
 
+.about {
+    padding-top: 50px;
+    padding-bottom: 7.5%;
+}
+
+.about p {
+    font-size: 30px;
+}
+
+.about a {
+    font-size: 25px;
+    padding-bottom: 50vh;
+    text-align: center;
+    vertical-align: middle;
+    color: white;
+    text-decoration: none;
+}
+
+.about a:hover {
+    color: rgb(114, 114, 114);
+}
+
 .projects {
     font-size: 20px;
     background-size: cover;

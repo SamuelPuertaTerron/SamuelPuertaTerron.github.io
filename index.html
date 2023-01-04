@@ -17,12 +17,20 @@
                         <section class="video-slideshow">
                             <div id="background-video">
                                 <h1>Samuel Puerta Terron</h1>
-                                <a href="#games">Learn More</a>
+                                <a href="#about">Learn More</a>
                                 <video class="bgvideo" src="Resources/Videos/Background.mp4" autoplay muted loop>
                             </div>
                         </section>
                     </section>
                 </header>
+                <div id="about">
+                    <section class="about">
+                        <h1>About</h1>
+                        <p>Hi my name is Sam and I am currently studying Games Programming, expanding my knowledge in
+                            Unity, Unreal Engine and learning OpenGL in my spare time.</p>
+                        <a href="#games">Learn More about my projects</a>
+                    </section>
+                </div>
                 <div id="games">
                     <section id="fractured-main" class="projects">
                         <figure class="left">
@@ -31,7 +39,8 @@
                                 <a class="link" href="https://github.com/SamuelPuertaTerron/Fractured-Engine"
                                     target="_blank" rel="noreferrer noopener">Click Here for the game download</a>
                             </button>
-                            <p>Fractured Engine is a 2D game engine created to learn about graphics programming. The
+                            <p>Fractured Engine is a 2D game engine created to learn about graphics programming. It is
+                                written in C++ and usese OpenGL for the 2D rendering. The
                                 engine currently features sprite rendering, text rendering and debugging tools.</p>
                         </figure>
                     </section>
@@ -105,29 +114,8 @@
             </div>
         </div>
     </div>
-    <script>
-        function move() {
-            var hidden = document.getElementById('hidden');
-            var fadeIn = document.getElementById('start');
-            hidden.style.opacity = 1;
-            fadeIn.classList.toggle('fade');
-        }
-
-        function loadtab(name) {
-            var home = document.getElementById('home');
-            home.style.display = 'none';
-            var elem = document.getElementById(name);
-            elem.style.display = 'block';
-        }
-
-        function closetab(name) {
-            var elem = document.getElementById(name);
-            elem.style.display = 'none';
-            var home = document.getElementById('home');
-            home.style.display = 'block';
-        }
-        move();
-    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="main.js"></script>
 </body>
 
 </html>
