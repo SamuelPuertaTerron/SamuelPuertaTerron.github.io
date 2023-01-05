@@ -42,4 +42,30 @@ function closetab(name) {
     window.scrollTo(0, currentYPos);
 }
 
+function mobileUI() {
+    var elem = document.getElementById('background-video');
+    elem.style.display = 'none';
+    var home = document.getElementById('background-image');
+    home.style.display = 'block';
+}
+
+function desktopUI() {
+    var elem = document.getElementById('background-video');
+    elem.style.display = 'block';
+    var home = document.getElementById('background-image');
+    home.style.display = 'none';
+}
+
+function resizeUI()
+{
+    if($(window).width() <= 600) {
+        mobileUI();
+    }else {
+        desktopUI();
+    }
+}
+
+onresize = resizeUI; //Resize Event
+
+resizeUI();
 move();
