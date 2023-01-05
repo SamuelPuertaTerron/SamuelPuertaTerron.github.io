@@ -1,5 +1,11 @@
 var currentYPos;
 
+//Called once at the start of a load
+function start() {
+    resizeUI();
+    move();
+}
+
 function Save(name, variable) {
     localStorage.setItem(name, variable);
 }
@@ -67,5 +73,4 @@ function resizeUI()
 
 onresize = resizeUI; //Resize Event
 
-resizeUI();
-move();
+onload = start();
