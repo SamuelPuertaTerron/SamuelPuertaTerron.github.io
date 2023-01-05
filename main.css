@@ -72,7 +72,7 @@ article.hidden {
     height: 0;
 }
 
-.video-slideshow video{
+.video-slideshow iframe{
     position: absolute;
     top: 0;
     left: 0;
