@@ -72,6 +72,30 @@ article.hidden {
     height: 0;
 }
 
+.video-slideshow h2 {
+    font-size: 30px;
+    padding-bottom: 50vh;
+    text-align: center;
+}
+
+.video-slideshow a {
+    font-size: 30px;
+    padding-bottom: 50vh;
+    text-align: center;
+    vertical-align: middle;
+    color: white;
+    text-decoration: none;
+}
+
+.video-slideshow ul li a{
+    font-size: 40px;
+    display: inline;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+}
+
 .video-slideshow iframe {
     position: absolute;
     top: 0;
@@ -88,21 +112,6 @@ article.hidden {
     font-weight: bold;
     display: block;
     text-align: center;
-}
-
-.video-slideshow h2 {
-    font-size: 30px;
-    padding-bottom: 50vh;
-    text-align: center;
-}
-
-.video-slideshow a {
-    font-size: 30px;
-    padding-bottom: 50vh;
-    text-align: center;
-    vertical-align: middle;
-    color: white;
-    text-decoration: none;
 }
 
 .video-slideshow a:hover {

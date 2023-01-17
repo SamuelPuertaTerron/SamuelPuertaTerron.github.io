@@ -4,6 +4,7 @@ var currentYPos;
 function start() {
     resizeUI();
     move();
+    muteIFrame();
 }
 
 function Save(name, variable) {
@@ -27,27 +28,6 @@ function move() {
     fadeIn.classList.toggle('fade');
 }
 
-function loadtab(name) {
-    currentYPos = window.scrollY;
-    Save("ScrollPos", currentYPos); //Save Scroll Position
-    ResetURL();
-
-    var home = document.getElementById('home');
-    home.style.display = 'none';
-    var elem = document.getElementById(name);
-    elem.style.display = 'block';
-}
-
-function closetab(name) {
-    var elem = document.getElementById(name);
-    elem.style.display = 'none';
-    var home = document.getElementById('home');
-    home.style.display = 'block';
-    
-    Get("ScrollPos", currentYPos); //Gets Scroll Position
-    window.scrollTo(0, currentYPos);
-}
-
 function mobileUI() {
     var elem = document.getElementById('background-video');
     elem.style.display = 'none';
@@ -60,6 +40,12 @@ function desktopUI() {
     elem.style.display = 'block';
     var home = document.getElementById('background-image');
     home.style.display = 'none';
+}
+
+function muteIFrame() {
+    var iframe = document.getElementsByTagName('iframe')[0];
+
+    iframe.contentWindow.postMessage('{"method":"setVolume", "value":0}','*');
 }
 
 function resizeUI()

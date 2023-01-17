@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+html {
+    scroll-behavior: smooth;
+    background: url(../Resources/Images/Background.png) no-repeat center center;
+    min-height: 100%;
+    background-size: cover
+}
+
+body {
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    height: 100%;
+}
+
+h1 {
+    font-size: 75px;
+}
+
+h2 {
+    font-size: 40px;
+}
+
+h3 {
+    font-size: 35px;
+}
+
+article.active {
+    opacity: 1;
+}
+
+article.hidden {
+    display: none;
+}
+
+section {
+    padding-top: 1.5%;
+ }
+
+section img {
+    margin: 1.5px;
+    padding-right: 45vh;
+    float: right;
+    width: 30%;
+    height: 30%;
+}
+
+section h2 {
+    padding-left: 45vh;
+    width: 30%;
+    height: 30%;
+}
+
+section h3 {
+    padding-left: 45vh;
+    font-size: 35px;
+    width: 30%;
+    height: 30%;
+}
+
+section p {
+    margin: 2.5px;
+    font-size: 25px;
+    padding-left: 45vh;
+    width: 30%;
+    height: 30%;
+}
+
+section a {
+    margin: 2.5px;
+    font-size: 25px;
+    padding-left: 45vh;
+    width: 30%;
+    height: 30%;
+    text-decoration: none;
+    color: white;
+}
+
+section a:hover {
+    color: rgb(114, 114, 114);
+}
+
+.header-top {
+    font-size: 20px;
+}
+
+.header-top h1 {
+    font-size: 50px;
+}
+
+.sub-header {
+    font-size: 40px;
+}
+
+@media only screen and (max-width: 600px) {
+    body {
+        background-size: cover;
+        font-size: 25px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    body {
+        background-size: cover;
+    }
+}
