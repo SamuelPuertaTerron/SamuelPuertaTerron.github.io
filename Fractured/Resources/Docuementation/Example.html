@@ -223,12 +223,12 @@ namespace Sandbox
 	void Sandbox::OnAppCreate()
 	{
 		//This is where the user would create GameObjects 
-        object.id = Engine::GetInstance().GetScene().CreateEntity();
+        object.id = Engine::GetInstance()-&gt;GetScene()-&gt;CreateEntity();
         object.AddComponent&lt;RenderComponent&gt;();
-        object.GetComponent&lt;RenderComponent&gt;()-&gt;Sprite = Engine::GetInstance()-&gt;GetRenderer()-&gt;GetTexture(0); //This would load a white square which comes with the engine. 
-		object2.id = Engine::GetInstance().GetScene().CreateEntity();
+        object.GetComponent&lt;RenderComponent&gt;()-&gt;Sprite = Engine::GetInstance()-&gt;GetRenderer()-&gt;GetTextur(0); //This would load a white square which comes with the engine. 
+		object2.id = Engine::GetInstance()-&gt;GetScene()-&gt;CreateEntity();
         object2.AddComponent&lt;RenderComponent&gt;();
-		object2.GetTransform().Position = { -5.0f, 8.5f }; //Sets the position to -5.0f on the x axis and 8.5f on the y axis
+		object2.GetTransform()-&gt;Position = { -5.0f, 8.5f }; //Sets the position to -5.0f on the x axis and 8.5f on the y axis
         object2.GetComponent&lt;RenderComponent&gt;()-&gt;Sprite = Engine::GetInstance()-&gt;GetRenderer()-&gt;GetTextures(1);
 	}
 	void Sandbox::OnAppUpdate(float DeltaTime)
