@@ -305,10 +305,6 @@ std::shared_ptr&lt;FApp&gt; CreateApp()
 
 namespace Sandbox
 {
-	#include &quot;Sandbox.h&quot;
-
-namespace Sandbox
-{
 	WindowSettings Sandbox::GetWindowSettings()
 	{
 		WindowSettings windowSettings;
@@ -329,8 +325,8 @@ namespace Sandbox
         object.GetComponent&lt;RenderComponent&gt;()-&gt;Sprite = Engine::GetInstance()-&gt;GetRenderer()-&gt;GetTexture(0); //This would load a white square which comes with the engine. 
         object2.id = Engine::GetInstance()-&gt;GetScene()-&gt;CreateEntity();
         object2.AddComponent&lt;RenderComponent&gt;();
-        object2.GetTransform()-&gt;Position = { -5.0f, 8.5f }; //Sets the position to -5.0f on the x axis and 8.5f on the y axis
         object2.GetComponent&lt;RenderComponent&gt;()-&gt;Sprite = Engine::GetInstance()-&gt;GetRenderer()-&gt;GetTexture(1);
+        object2.GetTransform()-&gt;Position = { -5.0f, 3.5f }; //Sets the position to -5.0f on the x axis and 3.5f on the y axis
     }
     void Sandbox::OnAppUpdate(float DeltaTime)
     {
@@ -357,8 +353,8 @@ namespace Sandbox
         if (Collision::HasCollided(object, object2))
         {
             //Sets a random positon when you collided with the object2
-            object2.GetTransform()-&gt;Position.x = Random::RandomNumberInRange(-8.0f, 8.0f);
-            object2.GetTransform()-&gt;Position.y = Random::RandomNumberInRange(-8.0f, 8.0f);
+            object2.GetTransform()-&gt;Position.x = Random::RandomNumberInRange(-4.0f, 4.0f);
+            object2.GetTransform()-&gt;Position.y = Random::RandomNumberInRange(-4.0f, 4.0f);
         }
     }
     void Sandbox::OnAppRender()
