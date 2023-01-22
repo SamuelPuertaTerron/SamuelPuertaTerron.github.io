@@ -201,15 +201,14 @@ std::shared_ptr&lt;FApp&gt; CreateApp()
 <p>Sandbox.cpp</p>
 <pre><code class="language-cpp">#include &quot;Sandbox.h&quot;
 
-#include &quot;Fractured/Actor/FActor.h&quot;
-#include &quot;Fractured/Input/FInputManager.h&quot;
-#include &quot;Fractured/Rendering/RenderManager.h&quot;
+namespace Sandbox
+{
+	#include &quot;Sandbox.h&quot;
 
 namespace Sandbox
 {
 	WindowSettings Sandbox::GetWindowSettings()
 	{
-        //Where the user can Adjust the window settings. 
 		WindowSettings windowSettings;
 		windowSettings.title = &quot;Fractured Application&quot;;
 		windowSettings.width = 1280;
@@ -220,57 +219,57 @@ namespace Sandbox
 		return windowSettings;
 	}
 
-	void Sandbox::OnAppCreate()
-	{
-		//This is where the user would create GameObjects 
+    void Sandbox::OnAppCreate()
+    {
+        //This is where the user would create GameObjects 
         object.id = Engine::GetInstance()-&gt;GetScene()-&gt;CreateEntity();
         object.AddComponent&lt;RenderComponent&gt;();
         object.GetComponent&lt;RenderComponent&gt;()-&gt;Sprite = Engine::GetInstance()-&gt;GetRenderer()-&gt;GetTexture(0); //This would load a white square which comes with the engine. 
-		object2.id = Engine::GetInstance()-&gt;GetScene()-&gt;CreateEntity();
+        object2.id = Engine::GetInstance()-&gt;GetScene()-&gt;CreateEntity();
         object2.AddComponent&lt;RenderComponent&gt;();
-		object2.GetTransform()-&gt;Position = { -5.0f, 8.5f }; //Sets the position to -5.0f on the x axis and 8.5f on the y axis
+        object2.GetTransform()-&gt;Position = { -5.0f, 8.5f }; //Sets the position to -5.0f on the x axis and 8.5f on the y axis
         object2.GetComponent&lt;RenderComponent&gt;()-&gt;Sprite = Engine::GetInstance()-&gt;GetRenderer()-&gt;GetTexture(1);
-	}
-	void Sandbox::OnAppUpdate(float DeltaTime)
-	{
-		//The Main Update Logic
+    }
+    void Sandbox::OnAppUpdate(float DeltaTime)
+    {
+        //The Main Update Logic
         //Moving Objects
 
         if (InputManager::IsKeyPressed(KeyCode::FK_W))
-		{
-			object.GetTransform()-&gt;Position.y += 5.0f * DeltaTime; //Makes the object move up
-		}
-		if (InputManager::IsKeyPressed(KeyCode::FK_S))
-		{
-			object.GetTransform()-&gt;Position.y -= 5.0f * DeltaTime; //Makes the object move down
-		}
-		if (InputManager::IsKeyPressed(KeyCode::FK_A))
-		{
-			object.GetTransform()-&gt;Position.x -= 5.0f * DeltaTime; //Makes the object move left
-		}
-		if (InputManager::IsKeyPressed(KeyCode::FK_D))
-		{
-			object.GetTransform()-&gt;Position.x += 5.0f * DeltaTime; //Makes the object move right
-		}
+        {
+            object.GetTransform()-&gt;Position.y += 5.0f * DeltaTime; //Makes the object move up
+        }
+        if (InputManager::IsKeyPressed(KeyCode::FK_S))
+        {
+            object.GetTransform()-&gt;Position.y -= 5.0f * DeltaTime; //Makes the object move down
+        }
+        if (InputManager::IsKeyPressed(KeyCode::FK_A))
+        {
+            object.GetTransform()-&gt;Position.x -= 5.0f * DeltaTime; //Makes the object move left
+        }
+        if (InputManager::IsKeyPressed(KeyCode::FK_D))
+        {
+            object.GetTransform()-&gt;Position.x += 5.0f * DeltaTime; //Makes the object move right
+        }
 
-		if(Collision::HasCollided(object, object2))
-		{
-			//Sets a random positon when you collided with the object2
-			object2.GetTransform().Position.x = Random::RandomNumberInRange(-8.0f, 8.0f); 
-			object2.GetTransform().Position.y = Random::RandomNumberInRange(-8.0f, 8.0f);
-		}
-	}
-	void Sandbox::OnAppRender()
-	{
+        if (Collision::HasCollided(object, object2))
+        {
+            //Sets a random positon when you collided with the object2
+            object2.GetTransform()-&gt;Position.x = Random::RandomNumberInRange(-8.0f, 8.0f);
+            object2.GetTransform()-&gt;Position.y = Random::RandomNumberInRange(-8.0f, 8.0f);
+        }
+    }
+    void Sandbox::OnAppRender()
+    {
         //Where Text will be drawn
-	}
-	void Sandbox::OnAppQuit()
-	{
+    }
+    void Sandbox::OnAppQuit()
+    {
         //Anything the user wants to do before the game quits
         //Runs before any of the engine quitting code
         //Logs (Only Displayed in Debug Configuration) that the Application is quitting and appends the window title to the end
-		FR_LOG_INFO(&quot;Quitting Application: &quot;, GetWindowSettings().title);
-	}
+        FR_LOG_INFO(&quot;Quitting Application: &quot;, GetWindowSettings().title);
+    }
 }
 </code></pre>
 
