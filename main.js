@@ -1,4 +1,7 @@
 var currentYPos;
+document.cookie = "SameSite=None;Secure"
+onresize = resizeUI; //Resize Event
+onload = start();
 
 //Called once at the start of a load
 function start() {
@@ -56,7 +59,3 @@ function resizeUI()
         desktopUI();
     }
 }
-
-onresize = resizeUI; //Resize Event
-
-onload = start();

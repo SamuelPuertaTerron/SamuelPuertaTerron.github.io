@@ -36,14 +36,6 @@ h3 {
     font-size: 35px;
 }
 
-article.active {
-    opacity: 1;
-}
-
-article.hidden {
-    display: none;
-}
-
 section {
     padding-top: 1.5%;
  }
