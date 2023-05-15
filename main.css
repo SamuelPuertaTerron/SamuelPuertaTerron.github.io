@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200&family=Sniglet&display=swap');
 
 * {
     margin: 0;
@@ -20,16 +20,36 @@ html {
 body {
     color: rgb(255, 255, 255);
     text-align: center;
-    font-family: 'Roboto', sans-serif;
     height: 100%;
 }
 
 h1 {
     font-size: 75px;
+    font-family: 'Sniglet', cursive;
 }
 
 h2 {
     font-size: 50px;
+    font-family: 'Sniglet', cursive;
+}
+
+p {
+    font-family: 'Dosis', sans-serif;
+    color: rgb(179, 179, 179);
+    font-size: 40px;
+}
+
+a{
+    font-family: 'Dosis', sans-serif;
+    color: rgb(179, 179, 179);
+    font-size: 30px;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+}
+
+a:hover{
+    color:rgba(0, 84, 90, 0.8);
 }
 
 article.active {
@@ -78,24 +98,6 @@ article.hidden {
     text-align: center;
 }
 
-.video-slideshow a {
-    font-size: 30px;
-    padding-bottom: 50vh;
-    text-align: center;
-    vertical-align: middle;
-    color: white;
-    text-decoration: none;
-}
-
-.video-slideshow ul li a{
-    font-size: 40px;
-    display: inline;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    text-decoration: none;
-}
-
 .video-slideshow iframe {
     position: absolute;
     top: 0;
@@ -114,31 +116,12 @@ article.hidden {
     text-align: center;
 }
 
-.video-slideshow a:hover {
-    color: rgb(114, 114, 114);
-}
 
 .about {
     padding-top: 50px;
     padding-bottom: 7.5%;
 }
 
-.about p {
-    font-size: 30px;
-}
-
-.about a {
-    font-size: 25px;
-    padding-bottom: 50vh;
-    text-align: center;
-    vertical-align: middle;
-    color: white;
-    text-decoration: none;
-}
-
-.about a:hover {
-    color: rgb(114, 114, 114);
-}
 
 .projects {
     font-size: 20px;
@@ -171,16 +154,16 @@ article.hidden {
 }
 
 .projects button:hover {
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(3, 94, 110);
     /* Fallback color */
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 84, 90, 0.8);
     border: 5px solid #f1f1f1;
 }
 
 .projects p {
     padding: 10px;
     width: 50%;
-    font-size: 25px;
+    font-size: 30px;
 }
 
 .projects h1 {
@@ -284,19 +267,6 @@ article.hidden {
         font-size: 30px;
         padding-bottom: 50vh;
         text-align: center;
-    }
-
-    .img-background a {
-        font-size: 30px;
-        padding-bottom: 50vh;
-        text-align: center;
-        vertical-align: middle;
-        color: white;
-        text-decoration: none;
-    }
-
-    .img-background a:hover {
-        color: rgb(114, 114, 114);
     }
 
     .projects {
