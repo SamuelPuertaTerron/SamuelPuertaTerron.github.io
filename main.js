@@ -1,61 +1,58 @@
-var currentYPos;
-document.cookie = "SameSite=None;Secure"
-onresize = resizeUI; //Resize Event
-onload = start();
+document.addEventListener('DOMContentLoaded', function () {
+    let text = 'Hello World... Welcome';
+    let words = text.split(/\s+/);
+    let outputElement = document.getElementById('output');
+    let outputContainer = document.getElementById('outputContainer');
+    let compilingElement = document.getElementById('compiling');
+    let sampleOutputElement = document.getElementById('sampleOutput');
+    let currentLine = "";
+    let sampleDisplayed = false;
 
-//Called once at the start of a load
-function start() {
-    resizeUI();
-    move();
-    muteIFrame();
-}
+    let coloredText = 'Console.<span class="blue-text">Log</span>("<span class="green-text">' + currentLine + '</span>");';
 
-function Save(name, variable) {
-    localStorage.setItem(name, variable);
-}
+    outputElement.innerHTML  = coloredText;
 
-function Get(name, variable) {
-    if(localStorage.getItem(name) != null) {
-        localStorage.getItem(name, variable);
+    function appendWord() {
+        if (sampleDisplayed) {
+            return;
+        }
+
+        if (words.length > 0) {
+            currentLine += words.shift() + ' ';
+            outputElement.innerHTML = 'Console.<span class="blue-text">Log</span>("<span class="green-text">' + currentLine + '</span>");';
+        } else {
+            compilingElement.innerHTML = "<span class='green-text'>Compiling...</span>"
+            timer(2000, () => {
+                compilingElement.innerHTML = "<span class='green-text'>Compiling Completed</span>"
+                timer(500, () => {
+                    compilingElement.innerHTML = "<span class='green-text'>Launching...</span>";
+                    timer(500, () => { 
+                        displaySampleText(); 
+                    });
+                });
+            });
+        }
     }
-}
 
-function ResetURL() {
-    history.pushState("", document.title, window.location.pathname + window.location.search);
-}
-
-function move() {
-    var hidden = document.getElementById('hidden');
-    var fadeIn = document.getElementById('start');
-    hidden.style.opacity = 1;
-    fadeIn.classList.toggle('fade');
-}
-
-function mobileUI() {
-    var elem = document.getElementById('background-video');
-    elem.style.display = 'none';
-    var home = document.getElementById('background-image');
-    home.style.display = 'block';
-}
-
-function desktopUI() {
-    var elem = document.getElementById('background-video');
-    elem.style.display = 'block';
-    var home = document.getElementById('background-image');
-    home.style.display = 'none';
-}
-
-function muteIFrame() {
-    var iframe = document.getElementsByTagName('iframe')[0];
-
-    iframe.contentWindow.postMessage('{"method":"setVolume", "value":0}','*');
-}
-
-function resizeUI()
-{
-    if($(window).width() <= 600) {
-        mobileUI();
-    }else {
-        desktopUI();
+    function displaySampleText() {
+        outputContainer.style.display = 'None';
+        sampleOutputElement.style.display = 'block';
+        sampleDisplayed = true;
     }
+
+    document.addEventListener('keypress', function (event) {
+        // Check if the pressed key is a letter or a space
+        if (/^[a-zA-Z\s]$/.test(event.key)) {
+            appendWord();
+        }
+    });
+});
+
+const delay = (delayInms) => {
+    return new Promise(resolve => setTimeout(resolve, delayInms));
+};
+
+const timer = async(time, func) =>{
+    await delay(time);
+    func();
 }
