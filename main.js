@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    let text = 'Hello World... Welcome';
+    let text = 'Make Website Look Nice';
     let words = text.split(/\s+/);
     let outputElement = document.getElementById('output');
     let outputContainer = document.getElementById('outputContainer');
@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let currentLine = "";
     let sampleDisplayed = false;
 
-    let coloredText = 'Console.<span class="blue-text">Log</span>("<span class="green-text">' + currentLine + '</span>");';
+    let coloredText = 'Console.<span class="blue-text">WriteLine</span>("<span class="green-text">' + currentLine + '</span>");';
 
     outputElement.innerHTML  = coloredText;
 
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (words.length > 0) {
             currentLine += words.shift() + ' ';
-            outputElement.innerHTML = 'Console.<span class="blue-text">Log</span>("<span class="green-text">' + currentLine + '</span>");';
+            outputElement.innerHTML = 'Console.<span class="blue-text">WriteLine</span>("<span class="green-text">' + currentLine + '</span>");';
         } else {
             compilingElement.innerHTML = "<span class='green-text'>Compiling...</span>"
             timer(2000, () => {
@@ -35,8 +35,10 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function displaySampleText() {
-        outputContainer.style.display = 'None';
-        sampleOutputElement.style.display = 'block';
+        //outputContainer.style.display = 'None';
+        //sampleOutputElement.style.display = 'block';
+        var filePath = "portfolio.html";
+        window.location.href = filePath;
         sampleDisplayed = true;
     }
 
