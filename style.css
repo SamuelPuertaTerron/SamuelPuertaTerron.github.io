@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Sniglet&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #ff9494;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.panel,
+.settings,
+.game,
+#leaderboards {
+    width: 90%; /* Adjusted width for mobile */
+    background-color: #e2e2e2;
+    padding: 10px; /* Reduced padding for mobile */
+    border-radius: 10px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+    text-align: center;
+    font-size: 18px; /* Adjusted font size for mobile */
+}
+
+.game,
+.settings,
+#leaderboards
+{
+    display: none;
+}
+
+#scoreText,
+#popup-icon {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 25px; /* Adjusted font size for mobile */
+    cursor: pointer;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%; /* Adjusted top position */
+    left: 50%; /* Adjusted left position */
+    transform: translate(-50%, -50%); /* Center horizontally and vertically */
+    width: 90%; /* Adjusted width for mobile */
+    max-width: 300px; /* Added max-width to prevent overflow on small screens */
+    background-color: #e2e2e2;
+    border-radius: 10px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    font-size: 20px; /* Adjusted font size for mobile */
+}
+
+.settings {
+    display: none;
+}
+
+.gear-icon {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 25px; /* Adjusted font size for mobile */
+    cursor: pointer;
+}
+
+h1,
+button {
+    width: 80%; /* Adjusted width for mobile */
+    height: 40px; /* Reduced height for mobile */
+    display: block;
+    margin: 10px auto;
+    color: black;
+    text-align: center;
+}
+
+button {
+    font-size: 14px; /* Adjusted font size for mobile */
+    padding: 10px; /* Increased padding for mobile */
+}
+
+button {
+    background-color: rgb(100, 161, 252);
+    color: black;
+}
