@@ -20,7 +20,7 @@ const auth = getAuth(app);
 const provider = new GoogleAuthProvider(app);
 
 const button = document.getElementById("log_in_button");
-const signOutButton = document.getElementById("sign_out_button");
+const signOutButton = document.getElementById("signOutButton");
 const deleteButton = document.getElementById("deleteButton");
 const backButton = document.getElementById('backButton');
 const logInScreen = document.getElementById("panel");
@@ -31,7 +31,6 @@ const gearIcon = document.getElementById("gearIcon");
 const leaderboard = document.getElementById('leaderboardsButton');
 const lbPanel = document.getElementById('leaderboards');
 const lbButton = document.getElementById('backButtonSettings');
-let mainScore = 0;
 
 let currentUser = null;
 
@@ -112,13 +111,24 @@ deleteButton.addEventListener('click', function () {
 
 function displayLeaderboard(leaderboard) {
     const leaderboardContainer = document.getElementById('leaderboards');
-    leaderboardContainer.innerHTML = '<h2>Leaderboard</h2>';
+    leaderboardContainer.innerHTML = '<h1>Leaderboard</h1>';
     leaderboard.forEach((entry, index) => {
         var pElement = document.createElement('p');
-        pElement.textContent = "Score: " + entry.score + " username " + entry.username;
+        pElement.style.fontSize = '25px';
+        pElement.textContent = "Username: " + entry.username + " has a score of " + entry.score;
+
+        if (index === 0) {
+            pElement.innerHTML += ' 🥇'; 
+        } else if (index === 1) {
+            pElement.innerHTML += ' 🥈'; 
+        } else if (index === 2) {
+            pElement.innerHTML += ' 🥉'; 
+        }
+
         leaderboardContainer.appendChild(pElement);    
     });
 }
+
 
 
 function signInWithGoogle() {
@@ -148,21 +158,21 @@ function saveUserData(score) {
 }
 
 function readLeaderboardData() {
-    const userRef = ref(database, `users/${currentUser.displayName}`);
+    const leaderboardRef = ref(database, 'users');
 
-    return get(userRef)
+    return get(leaderboardRef)
         .then((snapshot) => {
             if (snapshot.exists()) {
                 const leaderboardArray = [];
-
-                const userData = snapshot.val();
-
-                leaderboardArray.push({
-                    username: userData.username,
-                    score: userData.score
+                snapshot.forEach((childSnapshot) => {
+                    const userData = childSnapshot.val();
+                    leaderboardArray.push({
+                        username: userData.username,
+                        score: userData.score
+                    });
                 });
 
-                leaderboardArray.sort((a, b) => a.score - b.score);
+                leaderboardArray.sort((a, b) => b.score - a.score); // Sort in descending order
 
                 return leaderboardArray;
             } else {
@@ -207,13 +217,6 @@ function removeUserData() {
         .catch((error) => {
             console.error("Error deleting data:", error);
         });
-}
-
-
-function getRandomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 const delay = (delayInms) => {
