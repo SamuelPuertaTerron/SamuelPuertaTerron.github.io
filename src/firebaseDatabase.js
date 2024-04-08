@@ -1,17 +1,16 @@
-export function setData(db, username, score) {
-    saveUserData(db, username, score);
+export function setData() {
+    console.log("Set data");
 }
 
-function saveUserData(db, username, score) {
-
+function saveUserData(db, ...params) {
     set(ref(db, `users/${username}`), {
         username: username,
         score: score,
     })
-        .then(() => {
-            console.log("User data saved successfully");
-        })
-        .catch((error) => {
-            console.log("Error: " + error.message);
-        });
+    .then(() => {
+        console.log("User data saved successfully");
+    })
+    .catch((error) => {
+        console.log("Error: " + error.message);
+    });
 }

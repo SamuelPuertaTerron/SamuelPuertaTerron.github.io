@@ -31,8 +31,12 @@ const gearIcon = document.getElementById("gearIcon");
 const leaderboard = document.getElementById('leaderboardsButton');
 const lbPanel = document.getElementById('leaderboards');
 const lbButton = document.getElementById('backButtonSettings');
+const adminButton = document.getElementById('addQuestionButton');
 
 let currentUser = null;
+let questionIndex = 0;
+
+setData();
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -46,6 +50,11 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+//adminButton.addEventListener('click', function(){
+//    var question = quizData.questions.pop();
+//    addQuestion(question.question, question.answers);
+//});
 
 onAuthStateChanged(auth, function (user) {
     if (user) {
@@ -157,6 +166,19 @@ function saveUserData(score) {
         });
 }
 
+function saveQuestion(question, choices){
+    set(ref(database, `questions/Question + ${questionIndex}`), {
+        question: question,
+        choices: choices,
+    })
+        .then(() => {
+            console.log("Question data saved successfully");
+        })
+        .catch((error) => {
+            console.log("Error: " + error.message);
+        });
+}
+
 function readLeaderboardData() {
     const leaderboardRef = ref(database, 'users');
 
@@ -233,6 +255,10 @@ var totalQuestions = quizData.questions.length;
 let isFinished = false;
 
 let questionScore = 0;
+
+function addQuestion(question, choices){
+    saveQuestion(question, choices);
+}
 
 function init() {
     if (!isFinished) {
