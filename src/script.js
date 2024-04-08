@@ -36,8 +36,6 @@ const adminButton = document.getElementById('addQuestionButton');
 let currentUser = null;
 let questionIndex = 0;
 
-setData();
-
 document.addEventListener("DOMContentLoaded", function () {
 
     gearIcon.addEventListener("click", function () {
