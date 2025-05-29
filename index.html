@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sam Puerta Terron - Games Programmer</title>
+    <style>
+        :root {
+            --primary: #1a1a2e;
+            --secondary: #16213e;
+            --accent: #0f3460;
+            --text: #e6e6e6;
+            --highlight: #4cc9f0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--primary);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+        
+        header {
+            text-align: center;
+            padding: 4rem 0;
+            background-color: var(--secondary);
+            border-bottom: 3px solid var(--highlight);
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .tagline {
+            font-size: 1.5rem;
+            color: var(--highlight);
+            font-weight: 300;
+        }
+        
+        section {
+            padding: 3rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        h2 {
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            color: var(--highlight);
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            margin: 1.5rem 0 0.5rem;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .project {
+            background-color: rgba(255,255,255,0.05);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .project:hover {
+            transform: translateY(-5px);
+        }
+        
+        .project-links a {
+            display: inline-block;
+            margin-right: 1rem;
+            margin-top: 1rem;
+            color: var(--highlight);
+            text-decoration: none;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: rgba(255,255,255,0.6);
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .tagline { font-size: 1.2rem; }
+            .skills-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Sam Puerta Terron</h1>
+            <p class="tagline">Games Programmer</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="about">
+            <h2>About Me</h2>
+            <p>
+                A passionate Games programmer specializing in game engine creation, low level systems and AI systems. 
+            
+            </p>
+        </section>
+
+        <section id="skills">
+            <h2>Core Skills</h2>
+            <div class="skills-grid">
+                <div>
+                    <h3>Languages</h3>
+                    <ul>
+                        <li>C++ (Modern/C++17/20)</li>
+                        <li>C#</li>
+                        <li>Lua (Scripting)</li>
+                        <li>HLSL/GLSL</li>
+                        <li>Python</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3>Engine Systems</h3>
+                    <ul>
+                        <li>Game Engine Architecture</li>
+                        <li>AI Systems</li>
+                        <li>Graphics Rendering</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3>Technologies</h3>
+                    <ul>
+                        <li>DirectX 11/OpenGL</li>
+                        <li>Unreal Engine 5</li>
+                        <li>Unity</li>
+                        <li>Git</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            
+            <div class="project">
+                <h3>Custom Game Engine</h3>
+                <p>From-scratch C++ engine with DirectX 11 renderer, ECS architecture, and 
+                   cross-platform support. Features batched sprite rendering, animation system, 
+                   and Lua scripting support.</p>
+                <div class="project-links">
+                    <a href="https://github.com/SamuelPuertaTerron/Sengine">GitHub Repo</a>
+                </div>
+            </div>
+            
+            <div class="project">
+                <h3>Bound in Time</h3>
+                <p>Our final game at University. The game is a co-op horde shooter like game, merging the elments of Overwatch and Left 4 Dead</p>
+                <div class="project-links">
+                    <a href="#">Steam Link (coming soon)</a>
+                </div>
+            </div>
+        
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>
+                <br>
+                <strong>Email:</strong> spuertaterron@gmail.com
+                <br>
+                <strong>GitHub:</strong> https://github.com/SamuelPuertaTerron
+                <br>
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Your Name | Game Engine Programmer</p>
+        </div>
+    </footer>
+</body>
+</html>
