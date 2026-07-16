@@ -371,42 +371,59 @@ window.onYouTubeIframeAPIReady = function(){
     videoId: song().id,
     playerVars: { controls: 0, disablekb: 1, rel: 0, iv_load_policy: 3, playsinline: 1 },
     events: {
-      onReady: ()=>{ playerReady = true; playBtn.disabled = false; },
+      onReady: ()=>{
+        playerReady = true;
+        player.unMute();
+        player.setVolume(100);
+        playBtn.disabled = false;
+      },
+      onStateChange: onPlayerState,
       onError: ()=>{ stageHint.textContent = "This video won't play — check the video ID in SONGS."; }
     }
   });
 };
 playBtn.disabled = true;
 
+let pending = null; // {dur, seg} — snippet waiting for playback to actually start
+
+function onPlayerState(e){
+  if(e.data === YT.PlayerState.PLAYING && pending){
+    const { dur, seg } = pending;
+    pending = null;
+    const fill = seg.querySelector(".fill");
+    const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    fill.style.transition = "none";
+    fill.style.transform = "scaleX(0)";
+    requestAnimationFrame(()=>{
+      fill.style.transition = reduced ? "none" : `transform ${dur}s linear`;
+      fill.style.transform = "scaleX(1)";
+    });
+    seg.classList.add("playing");
+    stage.classList.add("live");
+    stageHint.textContent = `Snippet ${attempt+1} of ${DURATIONS.length} — ${dur} second${dur>1?"s":""}`;
+
+    stopTimer = setTimeout(()=>{
+      player.pauseVideo();
+      player.seekTo(0, true);
+      stage.classList.remove("live");
+      playBtn.disabled = over;
+      fill.style.transition = "none";
+      fill.style.transform = "scaleX(0)";
+      seg.classList.remove("playing");
+    }, dur * 1000);
+  }
+}
+
 function playSnippet(){
   if(!playerReady || over) return;
   clearTimeout(stopTimer);
-  const dur = DURATIONS[attempt];
+  pending = { dur: DURATIONS[attempt], seg: segs[attempt] };
+  player.unMute();
+  player.setVolume(100);
   player.seekTo(0, true);
   player.playVideo();
-  stage.classList.add("live");
   playBtn.disabled = true;
-
-  const seg = segs[attempt];
-  const fill = seg.querySelector(".fill");
-  const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  fill.style.transition = "none";
-  fill.style.transform = "scaleX(0)";
-  requestAnimationFrame(()=>{
-    fill.style.transition = reduced ? "none" : `transform ${dur}s linear`;
-    fill.style.transform = "scaleX(1)";
-  });
-  seg.classList.add("playing");
-
-  stopTimer = setTimeout(()=>{
-    player.pauseVideo();
-    player.seekTo(0, true);
-    stage.classList.remove("live");
-    playBtn.disabled = false;
-    fill.style.transition = "none";
-    fill.style.transform = "scaleX(0)";
-    seg.classList.remove("playing");
-  }, dur * 1000);
+  stageHint.textContent = "Loading…";
 }
 playBtn.addEventListener("click", playSnippet);
 
@@ -492,6 +509,7 @@ function titleCase(s){ return s.replace(/\b\w/g, c=>c.toUpperCase()); }
 
 function advance(){
   clearTimeout(stopTimer);
+  pending = null;
   if(playerReady){ player.pauseVideo(); player.seekTo(0,true); }
   stage.classList.remove("live");
   playBtn.disabled = false;
@@ -507,6 +525,7 @@ function advance(){
 function finish(won){
   over = true;
   clearTimeout(stopTimer);
+  pending = null;
   stage.classList.remove("live");
   playBtn.disabled = true;
   input.disabled = true;
