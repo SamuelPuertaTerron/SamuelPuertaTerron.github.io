@@ -470,19 +470,21 @@ let player = null, playerReady = false;
 let attempt = 0;            // 0-based index into DURATIONS
 let over = false;
 let stopTimer = null;
-let songIndex = dailyIndex();
-let playedRandom = false;
 
-/* ---------- Daily song: same for all your mates on the same day ---------- */
-function dailyIndex(){
-  const d = new Date();
-  const key = d.getFullYear()*10000 + (d.getMonth()+1)*100 + d.getDate();
-  let h = key;
-  h = ((h >> 16) ^ h) * 0x45d9f3b;
-  h = ((h >> 16) ^ h) * 0x45d9f3b;
-  h = (h >> 16) ^ h;
-  return LIB.length ? Math.abs(h) % LIB.length : 0;
+/* ---------- Shuffle bag: random order, no repeats until all songs played ---------- */
+let bag = [];
+function drawIndex(){
+  if(bag.length === 0){
+    bag = LIB.map((_, i) => i);
+    for(let i = bag.length - 1; i > 0; i--){
+      const j = Math.floor(Math.random() * (i + 1));
+      [bag[i], bag[j]] = [bag[j], bag[i]];
+    }
+  }
+  return bag.pop();
 }
+let songIndex = LIB.length ? drawIndex() : 0;
+
 function song(){ return LIB[songIndex]; }
 function label(s){ return s.artist + " — " + s.title; }
 
@@ -706,8 +708,7 @@ document.getElementById("shareBtn").addEventListener("click", async (e)=>{
 });
 
 document.getElementById("nextBtn").addEventListener("click", ()=>{
-  if(LIB.length > 1) songIndex = (songIndex + 1 + Math.floor(Math.random()*(LIB.length-1))) % LIB.length;
-  playedRandom = true;
+  if(LIB.length > 1) songIndex = drawIndex();
   resetRound();
 });
 
@@ -722,7 +723,7 @@ function resetRound(){
     el.querySelector(".fill").style.transform = "scaleX(0)";
   });
   refreshStrip();
-  modeLine.textContent = playedRandom ? "Free play — random song" : "";
+  modeLine.textContent = `Random song each round · ${LIB.length} songs loaded`;
   if(playerReady){
     playBtn.disabled = false;
     player.cueVideoById(song().id);
@@ -730,7 +731,7 @@ function resetRound(){
 }
 
 modeLine.textContent = LIB.length
-  ? `Daily song — everyone gets the same one today · ${LIB.length} songs loaded${MISSING ? `, ${MISSING} awaiting links` : ""}`
+  ? `Random song each round · ${LIB.length} songs loaded${MISSING ? `, ${MISSING} awaiting links` : ""}`
   : "No playable songs yet — paste YouTube links into the SONGS list at the top of this file.";
 if(!LIB.length){
   playBtn.disabled = true;
