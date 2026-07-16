@@ -298,16 +298,159 @@
    artist = shown alongside the title
    The three below are placeholders — swap them for your own.
 ================================================================ */
+/* For id you can paste a FULL YouTube link (watch, youtu.be or Shorts)
+   or just the 11-character video ID. Songs with an empty id are
+   skipped until you fill them in, so the game works as you go. */
 const SONGS = [
+  /* ---------- Pub anthems & singalongs ---------- */
   { id: "dQw4w9WgXcQ", title: "Never Gonna Give You Up", artist: "Rick Astley" },
-  { id: "fJ9rUzIMcZQ", title: "Bohemian Rhapsody",       artist: "Queen" },
+  { id: "fJ9rUzIMcZQ", title: "Bohemian Rhapsody", artist: "Queen" },
   { id: "hTWKbfoikeg", title: "Smells Like Teen Spirit", artist: "Nirvana" },
+  { id: "gGdGFtwCNBE", title: "Mr. Brightside", artist: "The Killers" },
+  { id: "Y5fBdpreJiU", title: "Somebody Told Me", artist: "The Killers" },
+  { id: "6hzrDeceEKc", title: "Wonderwall", artist: "Oasis" },
+  { id: "cmpRLQZkTb8", title: "Don't Look Back in Anger", artist: "Oasis" },
+  { id: "4F_RCWVoL4s", title: "Sweet Caroline", artist: "Neil Diamond" },
+  { id: "luwAMFcc2f8", title: "Angels", artist: "Robbie Williams" },
+  { id: "https://youtu.be/sEXHeTcxQy4", title: "Chelsea Dagger", artist: "The Fratellis" },
+  { id: "", title: "Sex on Fire", artist: "Kings of Leon" },
+  { id: "", title: "Use Somebody", artist: "Kings of Leon" },
+  { id: "", title: "Dakota", artist: "Stereophonics" },
+  { id: "", title: "I'm Gonna Be (500 Miles)", artist: "The Proclaimers" },
+  { id: "", title: "Come On Eileen", artist: "Dexys Midnight Runners" },
+  { id: "", title: "Livin' on a Prayer", artist: "Bon Jovi" },
+  { id: "", title: "Don't Stop Believin'", artist: "Journey" },
+  { id: "", title: "Valerie", artist: "Mark Ronson ft. Amy Winehouse" },
+  { id: "", title: "Rehab", artist: "Amy Winehouse" },
+  { id: "", title: "Dancing in the Moonlight", artist: "Toploader" },
+  { id: "", title: "I Predict a Riot", artist: "Kaiser Chiefs" },
+  { id: "", title: "Ruby", artist: "Kaiser Chiefs" },
+  { id: "", title: "Naive", artist: "The Kooks" },
+  { id: "", title: "Fluorescent Adolescent", artist: "Arctic Monkeys" },
+  { id: "", title: "I Bet You Look Good on the Dancefloor", artist: "Arctic Monkeys" },
+  { id: "", title: "Do I Wanna Know?", artist: "Arctic Monkeys" },
+  { id: "", title: "Seven Nation Army", artist: "The White Stripes" },
+  { id: "", title: "Song 2", artist: "Blur" },
+  { id: "", title: "Parklife", artist: "Blur" },
+  { id: "", title: "Common People", artist: "Pulp" },
+  { id: "", title: "Bitter Sweet Symphony", artist: "The Verve" },
+  { id: "", title: "There She Goes", artist: "The La's" },
+  { id: "", title: "Sit Down", artist: "James" },
+  { id: "", title: "Three Lions", artist: "Baddiel, Skinner & The Lightning Seeds" },
+  { id: "", title: "Freed from Desire", artist: "Gala" },
+  { id: "", title: "Tubthumping", artist: "Chumbawamba" },
+  { id: "", title: "Year 3000", artist: "Busted" },
+  { id: "", title: "All the Small Things", artist: "blink-182" },
+  { id: "", title: "Teenage Dirtbag", artist: "Wheatus" },
+  { id: "", title: "Sk8er Boi", artist: "Avril Lavigne" },
+  { id: "", title: "Delilah", artist: "Tom Jones" },
+  { id: "", title: "It's Not Unusual", artist: "Tom Jones" },
+  { id: "", title: "Build Me Up Buttercup", artist: "The Foundations" },
+  { id: "", title: "I Want It That Way", artist: "Backstreet Boys" },
+  { id: "", title: "Wannabe", artist: "Spice Girls" },
+  { id: "", title: "Back for Good", artist: "Take That" },
+  { id: "", title: "Torn", artist: "Natalie Imbruglia" },
+  { id: "", title: "Viva la Vida", artist: "Coldplay" },
+  { id: "", title: "Yellow", artist: "Coldplay" },
+  { id: "", title: "Shotgun", artist: "George Ezra" },
+  { id: "", title: "Budapest", artist: "George Ezra" },
+  { id: "", title: "Riptide", artist: "Vance Joy" },
+  { id: "", title: "Rolling in the Deep", artist: "Adele" },
+  { id: "", title: "Someone Like You", artist: "Adele" },
+  { id: "", title: "Shape of You", artist: "Ed Sheeran" },
+  { id: "", title: "Castle on the Hill", artist: "Ed Sheeran" },
+  { id: "", title: "Galway Girl", artist: "Ed Sheeran" },
+  { id: "", title: "Take Me Home, Country Roads", artist: "John Denver" },
+  { id: "", title: "Hey Jude", artist: "The Beatles" },
+  { id: "", title: "Murder on the Dancefloor", artist: "Sophie Ellis-Bextor" },
+  { id: "", title: "Can't Get You Out of My Head", artist: "Kylie Minogue" },
+  { id: "", title: "Unwritten", artist: "Natasha Bedingfield" },
+  { id: "", title: "Mysterious Girl", artist: "Peter Andre" },
+  { id: "", title: "Uptown Funk", artist: "Mark Ronson ft. Bruno Mars" },
+  { id: "", title: "Dance Monkey", artist: "Tones and I" },
+
+  /* ---------- Chart pop ---------- */
+  { id: "", title: "Espresso", artist: "Sabrina Carpenter" },
+  { id: "", title: "Please Please Please", artist: "Sabrina Carpenter" },
+  { id: "", title: "Good Luck, Babe!", artist: "Chappell Roan" },
+  { id: "", title: "Pink Pony Club", artist: "Chappell Roan" },
+  { id: "", title: "Houdini", artist: "Dua Lipa" },
+  { id: "", title: "Levitating", artist: "Dua Lipa" },
+  { id: "", title: "Don't Start Now", artist: "Dua Lipa" },
+  { id: "", title: "As It Was", artist: "Harry Styles" },
+  { id: "", title: "Watermelon Sugar", artist: "Harry Styles" },
+  { id: "", title: "Flowers", artist: "Miley Cyrus" },
+  { id: "", title: "Anti-Hero", artist: "Taylor Swift" },
+  { id: "", title: "Cruel Summer", artist: "Taylor Swift" },
+  { id: "", title: "Blinding Lights", artist: "The Weeknd" },
+  { id: "", title: "Beautiful Things", artist: "Benson Boone" },
+  { id: "", title: "Stick Season", artist: "Noah Kahan" },
+  { id: "", title: "Greedy", artist: "Tate McRae" },
+  { id: "", title: "Escapism", artist: "RAYE ft. 070 Shake" },
+  { id: "", title: "Prada", artist: "cassö, RAYE & D-Block Europe" },
+  { id: "", title: "Sprinter", artist: "Dave & Central Cee" },
+  { id: "", title: "Birds of a Feather", artist: "Billie Eilish" },
+  { id: "", title: "A Bar Song (Tipsy)", artist: "Shaboozey" },
+  { id: "", title: "Messy", artist: "Lola Young" },
+  { id: "", title: "Padam Padam", artist: "Kylie Minogue" },
+
+  /* ---------- Drum & bass / dance ---------- */
+  { id: "", title: "Baddadan", artist: "Chase & Status" },
+  { id: "", title: "Backbone", artist: "Chase & Status & Stormzy" },
+  { id: "", title: "Disconnect", artist: "Becky Hill & Chase & Status" },
+  { id: "", title: "Blind Faith", artist: "Chase & Status ft. Liam Bailey" },
+  { id: "", title: "Time", artist: "Chase & Status ft. Delilah" },
+  { id: "", title: "Firestarter", artist: "The Prodigy" },
+  { id: "", title: "Breathe", artist: "The Prodigy" },
+  { id: "", title: "Out of Space", artist: "The Prodigy" },
+  { id: "", title: "Omen", artist: "The Prodigy" },
+  { id: "", title: "Crazy What Love Can Do", artist: "Becky Hill, David Guetta & Ella Henderson" },
+  { id: "", title: "Lose Control", artist: "Meduza, Becky Hill & Goodboys" },
+  { id: "", title: "Remember", artist: "Becky Hill & David Guetta" },
+  { id: "", title: "Waiting All Night", artist: "Rudimental ft. Ella Eyre" },
+  { id: "", title: "Feel the Love", artist: "Rudimental ft. John Newman" },
+  { id: "", title: "Nobody to Love", artist: "Sigma" },
+  { id: "", title: "Changing", artist: "Sigma ft. Paloma Faith" },
+  { id: "", title: "Hot Right Now", artist: "DJ Fresh ft. Rita Ora" },
+  { id: "", title: "Gold Dust", artist: "DJ Fresh" },
+  { id: "", title: "Afterglow", artist: "Wilkinson" },
+  { id: "", title: "Tarantula", artist: "Pendulum" },
+  { id: "", title: "Watercolour", artist: "Pendulum" },
+  { id: "", title: "Original Nuttah", artist: "UK Apache & Shy FX" },
+  { id: "", title: "Strangers", artist: "Kenya Grace" },
+  { id: "", title: "Boy's a Liar Pt. 2", artist: "PinkPantheress & Ice Spice" },
+  { id: "", title: "Tidal Wave", artist: "Sub Focus ft. Alpines" },
+  { id: "", title: "Insomnia", artist: "Faithless" },
+  { id: "", title: "Right Here, Right Now", artist: "Fatboy Slim" },
+  { id: "", title: "Praise You", artist: "Fatboy Slim" },
+  { id: "", title: "Born Slippy (Nuxx)", artist: "Underworld" },
+  { id: "", title: "Sandstorm", artist: "Darude" },
+  { id: "", title: "Friday", artist: "Riton x Nightcrawlers" },
+  { id: "", title: "Cold Heart (PNAU Remix)", artist: "Elton John & Dua Lipa" },
 ];
 
 /* Snippet lengths in seconds — one per attempt */
 const DURATIONS = [1, 2, 4, 7, 11, 16];
 
 /* ================================================================ */
+
+/* Accepts a full YouTube URL (watch / youtu.be / Shorts / embed) or a bare ID */
+function parseId(s){
+  if(!s) return "";
+  s = s.trim();
+  const m = s.match(/(?:youtu\.be\/|[?&]v=|shorts\/|embed\/)([A-Za-z0-9_-]{11})/);
+  if(m) return m[1];
+  if(/^[A-Za-z0-9_-]{11}$/.test(s)) return s;
+  return "";
+}
+
+/* The playable library: only songs whose id/link has been filled in */
+const LIB = SONGS.map(s => ({ ...s, id: parseId(s.id) })).filter(s => s.id);
+const MISSING = SONGS.length - LIB.length;
+if(MISSING > 0){
+  console.info(`Snipped: ${LIB.length} songs playable, ${MISSING} still need a YouTube link. Missing:`,
+    SONGS.filter(s => !parseId(s.id)).map(s => s.artist + " — " + s.title));
+}
 
 const strip = document.getElementById("strip");
 const stage = document.getElementById("stage");
@@ -338,9 +481,9 @@ function dailyIndex(){
   h = ((h >> 16) ^ h) * 0x45d9f3b;
   h = ((h >> 16) ^ h) * 0x45d9f3b;
   h = (h >> 16) ^ h;
-  return Math.abs(h) % SONGS.length;
+  return LIB.length ? Math.abs(h) % LIB.length : 0;
 }
-function song(){ return SONGS[songIndex]; }
+function song(){ return LIB[songIndex]; }
 function label(s){ return s.artist + " — " + s.title; }
 
 /* ---------- Build the unlock strip (widths ∝ seconds) ---------- */
@@ -366,6 +509,7 @@ function refreshStrip(){
 
 /* ---------- YouTube player ---------- */
 window.onYouTubeIframeAPIReady = function(){
+  if(!LIB.length) return;
   player = new YT.Player("yt-player", {
     width: 200, height: 200,
     videoId: song().id,
@@ -434,7 +578,7 @@ function renderSuggestions(){
   suggest.innerHTML = "";
   activeIdx = -1;
   if(q.length < 1){ suggest.classList.remove("open"); submitBtn.disabled = true; return; }
-  const hits = SONGS.filter(s => label(s).toLowerCase().includes(q)).slice(0,8);
+  const hits = LIB.filter(s => label(s).toLowerCase().includes(q)).slice(0,8);
   if(hits.length === 0){ suggest.classList.remove("open"); }
   else{
     hits.forEach(s=>{
@@ -446,7 +590,7 @@ function renderSuggestions(){
     });
     suggest.classList.add("open");
   }
-  submitBtn.disabled = !SONGS.some(s => label(s).toLowerCase() === input.value.trim().toLowerCase());
+  submitBtn.disabled = !LIB.some(s => label(s).toLowerCase() === input.value.trim().toLowerCase());
 }
 input.addEventListener("input", renderSuggestions);
 input.addEventListener("keydown", (e)=>{
@@ -562,7 +706,7 @@ document.getElementById("shareBtn").addEventListener("click", async (e)=>{
 });
 
 document.getElementById("nextBtn").addEventListener("click", ()=>{
-  songIndex = (songIndex + 1 + Math.floor(Math.random()*(SONGS.length-1))) % SONGS.length;
+  if(LIB.length > 1) songIndex = (songIndex + 1 + Math.floor(Math.random()*(LIB.length-1))) % LIB.length;
   playedRandom = true;
   resetRound();
 });
@@ -585,7 +729,14 @@ function resetRound(){
   }
 }
 
-modeLine.textContent = "Daily song — everyone gets the same one today";
+modeLine.textContent = LIB.length
+  ? `Daily song — everyone gets the same one today · ${LIB.length} songs loaded${MISSING ? `, ${MISSING} awaiting links` : ""}`
+  : "No playable songs yet — paste YouTube links into the SONGS list at the top of this file.";
+if(!LIB.length){
+  playBtn.disabled = true;
+  input.disabled = true;
+  skipBtn.disabled = true;
+}
 refreshStrip();
 
 /* Load the YouTube IFrame API */
